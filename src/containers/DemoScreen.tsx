@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import useAppNavigation from '../hooks/useAppNavigation';
 import { TabsScreen } from '../AppNavigation';
+import { AppText } from '../components/common/AppText';
 
 const Demo = () => {
     const navigation = useAppNavigation()
@@ -15,6 +16,12 @@ const Demo = () => {
             <Text>
                 Demo
             </Text>
+            <AppText>Main Font Regular</AppText>
+            <AppText textType='bold'>Main Font Bold</AppText>
+            <AppText textType='light'>Main Font Light</AppText>
+            <AppText fontFamily='Roboto' textType='bold'>Roboto Font Bold</AppText>
+            <AppText fontFamily='Roboto' textType='light'>Roboto Font Light</AppText>
+            <AppText fontFamily='Roboto'>Roboto Font Regular</AppText>
         </View>
     )
 }

@@ -6,8 +6,12 @@ export interface ITheme {
       bgBlack: string;      
     };
     fontFamily: {
-      main: string;
-      Roboto: string;
+      mainRegular: string;
+      mainLight: string;
+      mainBold: string;
+      RobotoRegular: string;
+      RobotoLight: string;
+      RobotoBold: string;
     };
   }
   

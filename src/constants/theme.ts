@@ -8,8 +8,12 @@ const theme: ITheme = {
     bgBlack: '#252526'
   },
   fontFamily: {
-    main: 'Cascadia Code',
-    Roboto: 'Roboto'
+    mainRegular: 'CascadiaCode-Regular',
+    mainLight: 'CascadiaCode-Light',
+    mainBold: 'CascadiaCode-Bold',
+    RobotoRegular: 'Roboto-Regular',
+    RobotoLight: 'Roboto-Light',
+    RobotoBold: 'Roboto-Bold'
   },
 };
 
