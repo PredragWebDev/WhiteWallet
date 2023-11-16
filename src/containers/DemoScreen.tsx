@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import useAppNavigation from '../hooks/useAppNavigation';
 import { TabsScreen } from '../AppNavigation';
-import { AppText } from '../components/common/AppText';
+import { AppText } from '@/components/common/AppText';
 
 const Demo = () => {
     const navigation = useAppNavigation()
