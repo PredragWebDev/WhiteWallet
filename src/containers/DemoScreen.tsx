@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {Text, TouchableOpacity } from 'react-native';
 import useAppNavigation from '@/hooks/useAppNavigation';
 import { TabsScreen } from '@/AppNavigation';
 import AppText from '@/components/common/AppText';
 import AppButton from '@/components/common/AppButton';
 import AppNotification, { NotificationType } from '@/components/common/AppNotification';
 import AppLayout from '@/components/common/AppLayout';
+import StatusBar, { Status } from '@/components/common/StatusBar';
 
 const Demo = () => {
     const navigation = useAppNavigation()
@@ -56,10 +57,16 @@ const Demo = () => {
             type={NotificationType.WARNING}  
             content='Label is required'
             />
-            <View style={{
-                height: 400,
-                backgroundColor: 'red'
-            }}></View>
+            <StatusBar
+            peers={12}
+            BTS2USD={5000}
+            />
+            <StatusBar
+            peers={12}
+            BTS2USD={5000}
+            checkStatus={Status.ERROR}
+            powerStatus={Status.WARNING}
+            />
         </AppLayout>
     )
 }

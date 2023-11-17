@@ -7,6 +7,9 @@ export interface ITheme {
       wwGreen: string;
       wwYellow: string; 
       wwRed: string; 
+      iconGreen: string,
+      iconRed: string;
+      iconYellow: string;
     };
     fontFamily: {
       mainRegular: string;

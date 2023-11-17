@@ -8,7 +8,10 @@ const theme: ITheme = {
     bgBlack: '#252526',
     wwGreen: '#4B8C57',
     wwYellow: '#F7931A',
-    wwRed: '#97212B'
+    wwRed: '#97212B',
+    iconGreen: "#74B64A",
+    iconYellow: '#FFCC00',
+    iconRed: '#F6271E'
   },
   fontFamily: {
     mainRegular: 'CascadiaCode-Regular',
