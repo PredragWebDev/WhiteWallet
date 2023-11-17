@@ -4,6 +4,7 @@ import useAppNavigation from '@/hooks/useAppNavigation';
 import { TabsScreen } from '@/AppNavigation';
 import AppText from '@/components/common/AppText';
 import AppButton from '@/components/common/AppButton';
+import AppNotification, { NotificationType } from '@/components/common/AppNotification';
 
 const Demo = () => {
     const navigation = useAppNavigation()
@@ -29,6 +30,30 @@ const Demo = () => {
             <AppButton 
                 type='secondary'
                 text='secondary button'
+            />
+            <AppButton 
+                type='primary'
+                text='primary button'
+                size='small'
+            />
+            <AppButton 
+                type='secondary'
+                text='secondary button'
+                size='small'
+            />
+            <AppNotification
+            type={NotificationType.SUCCESS}
+            title='Success!'
+            content='Correct password.'
+            />
+            <AppNotification
+            type={NotificationType.ERROR}
+            title='Error!'
+            content='Wrong password.'
+            />
+            <AppNotification
+            type={NotificationType.WARNING}  
+            content='Label is required'
             />
         </View>
     )
