@@ -12,7 +12,7 @@ import AppToggleButton from '@/components/common/AppToggleButton';
 import AppCheckBox from '@/components/common/AppCheckBox';
 import theme from '@/constants/theme';
 import AppTextInput from '@/components/common/AppTextInput';
-import CircleCheckIcon from '@/assets/icons/CircleCheckIcon';
+import AppSlider from '@/components/common/AppSlider';
 
 const Demo = () => {
     const navigation = useAppNavigation()
@@ -81,6 +81,7 @@ const Demo = () => {
                 <AppCheckBox value={toggleTest} onPress={() => setToggleTest(prev => !prev)} />
                 <AppTextInput icon='camera'/>
                 <AppTextInput type='secure'/>
+                <AppSlider />
             </View>
 
         </AppLayout>
