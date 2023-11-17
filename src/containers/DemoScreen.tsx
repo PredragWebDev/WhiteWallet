@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import useAppNavigation from '@/hooks/useAppNavigation';
 import { TabsScreen } from '@/AppNavigation';
 import AppText from '@/components/common/AppText';
@@ -8,9 +8,14 @@ import AppNotification, { NotificationType } from '@/components/common/AppNotifi
 import AppLayout from '@/components/common/AppLayout';
 import StatusBar, { Status } from '@/components/common/StatusBar';
 import Header from '@/components/common/Header';
+import AppToggleButton from '@/components/common/AppToggleButton';
+import AppCheckBox from '@/components/common/AppCheckBox';
+import theme from '@/constants/theme';
 
 const Demo = () => {
     const navigation = useAppNavigation()
+
+    const [toggleTest, setToggleTest] = useState<boolean>(false)
     return (
         <AppLayout barStyle="light-content">
             <TouchableOpacity onPress={() => navigation.navigate(TabsScreen)}>
@@ -27,48 +32,53 @@ const Demo = () => {
             <AppText fontFamily='Roboto' textType='bold'>Roboto Font Bold</AppText>
             <AppText fontFamily='Roboto' textType='light'>Roboto Font Light</AppText>
             <AppText fontFamily='Roboto'>Roboto Font Regular</AppText>
-            <AppButton 
+            <AppButton
                 text='primary button'
             />
-            <AppButton 
+            <AppButton
                 type='secondary'
                 text='secondary button'
             />
-            <AppButton 
+            <AppButton
                 type='primary'
                 text='primary button'
                 size='small'
             />
-            <AppButton 
+            <AppButton
                 type='secondary'
                 text='secondary button'
                 size='small'
             />
             <AppNotification
-            type={NotificationType.SUCCESS}
-            title='Success!'
-            content='Correct password.'
+                type={NotificationType.SUCCESS}
+                title='Success!'
+                content='Correct password.'
             />
             <AppNotification
-            type={NotificationType.ERROR}
-            title='Error!'
-            content='Wrong password.'
+                type={NotificationType.ERROR}
+                title='Error!'
+                content='Wrong password.'
             />
             <AppNotification
-            type={NotificationType.WARNING}  
-            content='Label is required'
+                type={NotificationType.WARNING}
+                content='Label is required'
             />
             <StatusBar
-            peers={12}
-            BTS2USD={5000}
+                peers={12}
+                BTS2USD={5000}
             />
             <StatusBar
-            peers={12}
-            BTS2USD={5000}
-            checkStatus={Status.ERROR}
-            powerStatus={Status.WARNING}
+                peers={12}
+                BTS2USD={5000}
+                checkStatus={Status.ERROR}
+                powerStatus={Status.WARNING}
             />
-            <Header title='Wallet Info' withBackButton/>
+            <Header title='Wallet Info' withBackButton />
+            <View style={{ backgroundColor: theme.colors.bgBlack }}>
+                <AppToggleButton value={toggleTest} onToggleSwitch={() => setToggleTest(prev => !prev)} />
+                <AppCheckBox value={toggleTest} onPress={() => setToggleTest(prev => !prev)} />
+            </View>
+
         </AppLayout>
     )
 }
