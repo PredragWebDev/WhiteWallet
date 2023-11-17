@@ -7,7 +7,7 @@ import Send from './Tabs/Send';
 import Receive from './Tabs/Receive';
 import CoinJoin from './Tabs/CoinJoin';
 import Settings from './Tabs/Settings';
-import Demo from './containers/DemoScreen';
+import Demo from '@/containers/DemoScreen';
 
 export const ExplorerScreen = 'WhiteWallet.ExplorerScreen';
 export const CoinJoinScreen = 'WhiteWallet.CoinJoinScreen';

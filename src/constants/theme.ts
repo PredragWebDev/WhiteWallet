@@ -5,7 +5,9 @@ const theme: ITheme = {
     white: '#FFFFFF',
     black: '#000000',
     grey: '#828282',
-    bgBlack: '#252526'
+    bgBlack: '#252526',
+    wwGreen: '#4B8C57',
+    wwYellow: '#F7931A'
   },
   fontFamily: {
     mainRegular: 'CascadiaCode-Regular',

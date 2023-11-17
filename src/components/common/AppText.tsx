@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, TextStyle, TextProps} from 'react-native';
-import theme from '../../constants/theme';
+import theme from '@/constants/theme';
 
 interface AppTextProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface AppTextProps {
   textProps?: TextProps;
 }
 
-export const AppText = ({
+const AppText = ({
   children,
   textType = 'regular',
   fontFamily = 'main',
@@ -42,6 +42,8 @@ export const AppText = ({
     </Text>
   );
 };
+
+export default AppText
 
 const styles = StyleSheet.create({
   basicStyles: {

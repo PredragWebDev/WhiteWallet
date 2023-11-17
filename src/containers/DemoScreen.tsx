@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import useAppNavigation from '../hooks/useAppNavigation';
-import { TabsScreen } from '../AppNavigation';
-import { AppText } from '@/components/common/AppText';
+import useAppNavigation from '@/hooks/useAppNavigation';
+import { TabsScreen } from '@/AppNavigation';
+import AppText from '@/components/common/AppText';
+import AppButton from '@/components/common/AppButton';
 
 const Demo = () => {
     const navigation = useAppNavigation()
@@ -22,6 +23,13 @@ const Demo = () => {
             <AppText fontFamily='Roboto' textType='bold'>Roboto Font Bold</AppText>
             <AppText fontFamily='Roboto' textType='light'>Roboto Font Light</AppText>
             <AppText fontFamily='Roboto'>Roboto Font Regular</AppText>
+            <AppButton 
+                text='primary button'
+            />
+            <AppButton 
+                type='secondary'
+                text='secondary button'
+            />
         </View>
     )
 }

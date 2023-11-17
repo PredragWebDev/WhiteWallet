@@ -3,7 +3,9 @@ export interface ITheme {
       white: string;
       black: string;
       grey: string;    
-      bgBlack: string;      
+      bgBlack: string;    
+      wwGreen: string;
+      wwYellow: string;  
     };
     fontFamily: {
       mainRegular: string;

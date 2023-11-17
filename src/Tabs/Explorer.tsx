@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import useAppNavigation from '../hooks/useAppNavigation';
-import { DemoScreen } from '../AppNavigation';
+import useAppNavigation from '@/hooks/useAppNavigation';
+import { DemoScreen } from '@/AppNavigation';
 
 const Explorer = () => {
     const navigation = useAppNavigation()
