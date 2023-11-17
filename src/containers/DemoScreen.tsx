@@ -5,11 +5,12 @@ import { TabsScreen } from '@/AppNavigation';
 import AppText from '@/components/common/AppText';
 import AppButton from '@/components/common/AppButton';
 import AppNotification, { NotificationType } from '@/components/common/AppNotification';
+import AppLayout from '@/components/common/AppLayout';
 
 const Demo = () => {
     const navigation = useAppNavigation()
     return (
-        <View style={styles.container}>
+        <AppLayout barStyle="light-content">
             <TouchableOpacity onPress={() => navigation.navigate(TabsScreen)}>
                 <Text>
                     Go To Tabs
@@ -55,16 +56,12 @@ const Demo = () => {
             type={NotificationType.WARNING}  
             content='Label is required'
             />
-        </View>
+            <View style={{
+                height: 400,
+                backgroundColor: 'red'
+            }}></View>
+        </AppLayout>
     )
 }
 
 export default Demo;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
