@@ -7,6 +7,7 @@ import AppButton from '@/components/common/AppButton';
 import AppNotification, { NotificationType } from '@/components/common/AppNotification';
 import AppLayout from '@/components/common/AppLayout';
 import StatusBar, { Status } from '@/components/common/StatusBar';
+import Header from '@/components/common/Header';
 
 const Demo = () => {
     const navigation = useAppNavigation()
@@ -67,6 +68,7 @@ const Demo = () => {
             checkStatus={Status.ERROR}
             powerStatus={Status.WARNING}
             />
+            <Header title='Wallet Info' withBackButton/>
         </AppLayout>
     )
 }
