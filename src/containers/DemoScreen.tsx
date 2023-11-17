@@ -11,6 +11,8 @@ import Header from '@/components/common/Header';
 import AppToggleButton from '@/components/common/AppToggleButton';
 import AppCheckBox from '@/components/common/AppCheckBox';
 import theme from '@/constants/theme';
+import AppTextInput from '@/components/common/AppTextInput';
+import CircleCheckIcon from '@/assets/icons/CircleCheckIcon';
 
 const Demo = () => {
     const navigation = useAppNavigation()
@@ -74,9 +76,11 @@ const Demo = () => {
                 powerStatus={Status.WARNING}
             />
             <Header title='Wallet Info' withBackButton />
-            <View style={{ backgroundColor: theme.colors.bgBlack }}>
+            <View style={{ backgroundColor: theme.colors.bgBlack, paddingBottom: 100 }}>
                 <AppToggleButton value={toggleTest} onToggleSwitch={() => setToggleTest(prev => !prev)} />
                 <AppCheckBox value={toggleTest} onPress={() => setToggleTest(prev => !prev)} />
+                <AppTextInput icon='camera'/>
+                <AppTextInput type='secure'/>
             </View>
 
         </AppLayout>
