@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native'
 import AppText from './AppText';
 import { horizontalScale } from '@/helpers/scale';
 import theme from '@/constants/theme';
@@ -8,12 +8,15 @@ interface AppButtonProps {
     handleClick?: () => void;
     text?: string,
     type?: 'primary' | 'secondary',
-    size?: 'large' | 'small' 
+    size?: 'large' | 'small',
+    style?: ViewStyle | ViewStyle[];
 }
 
-const AppButton = ({handleClick = () => {}, text = '', type = 'primary', size = 'large'}: AppButtonProps) => {
+const AppButton = ({handleClick = () => {}, text = '', type = 'primary', size = 'large', style}: AppButtonProps) => {
+    const styleProp = Array.isArray(style) ? style : [style];
+
     return(
-        <TouchableOpacity onPress={handleClick} style={[styles.container, {
+        <TouchableOpacity onPress={handleClick} style={[styles.container, ...styleProp, {
             backgroundColor: type === 'primary' ? theme.colors.wwGreen : theme.colors.wwYellow,
             borderRadius: size === 'large' ? horizontalScale(6) : horizontalScale(2)
         }]}>

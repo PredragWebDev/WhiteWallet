@@ -47,7 +47,7 @@ export default AppText
 
 const styles = StyleSheet.create({
   basicStyles: {
-    color: theme.colors.black,
+    color: theme.colors.white,
   },
   light: {
     fontFamily: theme.fontFamily.mainLight,

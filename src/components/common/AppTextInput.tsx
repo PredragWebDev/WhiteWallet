@@ -1,6 +1,6 @@
 import theme from "@/constants/theme";
 import { horizontalScale } from "@/helpers/scale";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, TextStyle } from "react-native";
 import { TextInput } from "react-native-paper";
 
@@ -24,13 +24,25 @@ const AppTextInput = ({
     multiline = false,
     style,
     onChangeText,
-    onFocus,
-    onBlur
+    onFocus = () => {},
+    onBlur = () => {}
 }: Props) => {
+    const [focused, setFocused] = useState(false);
+
+    const handleFocus = () => {
+        setFocused(true);
+        onFocus()
+    }
+
+    const handleBlur = () => {
+        setFocused(false);
+        onBlur()
+    }
+
     return(
           <TextInput 
             disabled={disabled}
-            right={<TextInput.Icon icon={icon} color={icon === 'camera' ? theme.colors.white : theme.colors.grey}/>}
+            right={<TextInput.Icon icon={icon} color={focused ? theme.colors.white : theme.colors.grey}/>}
             placeholder={placeholder}
             underlineColor={theme.colors.grey}
             activeUnderlineColor={theme.colors.white}
@@ -40,8 +52,8 @@ const AppTextInput = ({
             style={[styles.textInput, style]}
             contentStyle={styles.contentStyle}
             onChangeText={onChangeText}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             dense
           />
     )

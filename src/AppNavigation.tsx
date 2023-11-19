@@ -8,6 +8,9 @@ import Receive from './Tabs/Receive';
 import CoinJoin from './Tabs/CoinJoin';
 import Settings from './Tabs/Settings';
 import Demo from '@/containers/DemoScreen';
+import Welcome from './containers/Welcome';
+import GenerateWallet from './containers/GenerateWallet';
+import RecoverWallet from './containers/RecoverWallet';
 
 export const ExplorerScreen = 'WhiteWallet.ExplorerScreen';
 export const CoinJoinScreen = 'WhiteWallet.CoinJoinScreen';
@@ -16,7 +19,11 @@ export const SendScreen = 'WhiteWallet.SendScreen';
 export const SettingsScreen = 'WhiteWallet.SettingsScreen';
 export const TabsScreen = 'WhiteWallet.TabsScreen';
 
-export const DemoScreen = 'WhiteWallet.DemoScreen'
+export const DemoScreen = 'WhiteWallet.DemoScreen';
+
+export const WelcomeScreen = 'WhiteWallet.WelcomeScreen';
+export const GenerateWalletScreen = 'WhiteWallet.GenerateWalletScreen';
+export const RecoverWalletScreen = 'WhiteWallet.RecoverWalletScreen';
 
 const AppStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -72,16 +79,32 @@ const MainNavigation = () => {
     return (
         <AppStack.Navigator
             screenOptions={{
-                headerTitleAlign: 'center'
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+
+                }
             }}
         >
-            <AppStack.Screen
-                name={DemoScreen}
-                component={Demo}
-                options={{
-                    headerShown: false
-                }}
-            />
+            <AppStack.Group screenOptions={{
+                headerShown: false
+            }}>
+                <AppStack.Screen
+                    name={WelcomeScreen}
+                    component={Welcome}
+                />
+                <AppStack.Screen
+                    name={GenerateWalletScreen}
+                    component={GenerateWallet}
+                />
+                <AppStack.Screen
+                    name={RecoverWalletScreen}
+                    component={RecoverWallet}
+                />
+                <AppStack.Screen
+                    name={DemoScreen}
+                    component={Demo}
+                />
+            </AppStack.Group>
             <AppStack.Screen
                 name={TabsScreen}
                 component={TabNavigation}

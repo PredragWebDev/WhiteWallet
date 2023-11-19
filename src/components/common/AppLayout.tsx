@@ -32,13 +32,13 @@ type AppLayoutType = {
 function AppLayout({
   children,
   statusBarColor = theme.colors.black,
-  barStyle = 'dark-content',
+  barStyle = 'light-content',
   scrollable = true,
   noSafeArea = true,
   noPadding = false,
   addBottomInset = false,
   addTopInset = true,
-  backgroundColor = theme.colors.white,
+  backgroundColor = theme.colors.bgBlack,
   containerStyle,
   noScrollView = false,
   onScreenScroll = () => {},
@@ -51,7 +51,7 @@ function AppLayout({
     ...styles.contentContainer,
     paddingHorizontal: noPadding
       ? 0
-      : horizontalScale(20),
+      : horizontalScale(16),
     backgroundColor,
   };
 
