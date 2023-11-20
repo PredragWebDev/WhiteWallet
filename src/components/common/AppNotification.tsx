@@ -20,10 +20,10 @@ const AppNotification = ({type, title, content}: Props ) => {
     let bgColor: string;
     switch (type) {
         case NotificationType.SUCCESS:
-            bgColor = theme.colors.wwGreen
+            bgColor = theme.colors.notificationGreen
             break;
         case NotificationType.WARNING:
-            bgColor = theme.colors.wwYellow
+            bgColor = theme.colors.notificationYellow
             break;
         case NotificationType.ERROR:
             bgColor = theme.colors.wwRed

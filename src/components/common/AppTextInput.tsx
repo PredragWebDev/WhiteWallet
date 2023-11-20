@@ -11,6 +11,8 @@ interface Props {
     placeholder?: string;
     multiline?: boolean;
     style?: TextStyle;
+    contentStyle?: TextStyle;
+    value?: string;
     onChangeText?: (txt: string) => void;
     onFocus?: () => void;
     onBlur?: () => void;
@@ -18,11 +20,13 @@ interface Props {
 
 const AppTextInput = ({
     type = 'default',
-    icon = 'folder', 
+    icon, 
     disabled = false,
     placeholder = 'Type here',
     multiline = false,
     style,
+    contentStyle,
+    value = '',
     onChangeText,
     onFocus = () => {},
     onBlur = () => {}
@@ -42,7 +46,7 @@ const AppTextInput = ({
     return(
           <TextInput 
             disabled={disabled}
-            right={<TextInput.Icon icon={icon} color={focused ? theme.colors.white : theme.colors.grey}/>}
+            right={(icon && <TextInput.Icon icon={icon} color={focused ? theme.colors.white : theme.colors.grey}/>)}
             placeholder={placeholder}
             underlineColor={theme.colors.grey}
             activeUnderlineColor={theme.colors.white}
@@ -50,7 +54,8 @@ const AppTextInput = ({
             textColor={theme.colors.white}
             secureTextEntry={type === 'secure'}
             style={[styles.textInput, style]}
-            contentStyle={styles.contentStyle}
+            contentStyle={[styles.contentStyle, contentStyle]}
+            value={value}
             onChangeText={onChangeText}
             onFocus={handleFocus}
             onBlur={handleBlur}

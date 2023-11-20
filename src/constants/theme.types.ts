@@ -10,6 +10,8 @@ export interface ITheme {
       iconGreen: string,
       iconRed: string;
       iconYellow: string;
+      notificationGreen: string;
+      notificationYellow: string;
     };
     fontFamily: {
       mainRegular: string;

@@ -11,7 +11,9 @@ const theme: ITheme = {
     wwRed: '#97212B',
     iconGreen: "#74B64A",
     iconYellow: '#FFCC00',
-    iconRed: '#F6271E'
+    iconRed: '#F6271E',
+    notificationGreen: '#207F3E',
+    notificationYellow: '#C78F28'
   },
   fontFamily: {
     mainRegular: 'CascadiaCode-Regular',
