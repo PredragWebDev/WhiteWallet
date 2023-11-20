@@ -1,12 +1,20 @@
+import { PhraseScreen } from "@/AppNavigation";
 import AppButton from "@/components/common/AppButton";
 import AppLayout from "@/components/common/AppLayout";
 import AppTextInput from "@/components/common/AppTextInput";
 import Header from "@/components/common/Header";
 import { verticalScale } from "@/helpers/scale";
+import useAppNavigation from "@/hooks/useAppNavigation";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
 const GenerateWallet = () => {
+    const navigation = useAppNavigation();
+
+    const generateWallet = () => {
+        navigation.navigate(PhraseScreen)
+    }
+
     return(
         <AppLayout>
             <Header 
@@ -26,6 +34,7 @@ const GenerateWallet = () => {
             </View>
             <AppButton
                 text="NEXT"
+                handleClick={generateWallet}
             />
         </AppLayout>
     )

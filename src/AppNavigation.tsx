@@ -11,6 +11,7 @@ import Demo from '@/containers/DemoScreen';
 import Welcome from './containers/Welcome';
 import GenerateWallet from './containers/GenerateWallet';
 import RecoverWallet from './containers/RecoverWallet';
+import Phrase from './containers/Phrase';
 
 export const ExplorerScreen = 'WhiteWallet.ExplorerScreen';
 export const CoinJoinScreen = 'WhiteWallet.CoinJoinScreen';
@@ -24,6 +25,7 @@ export const DemoScreen = 'WhiteWallet.DemoScreen';
 export const WelcomeScreen = 'WhiteWallet.WelcomeScreen';
 export const GenerateWalletScreen = 'WhiteWallet.GenerateWalletScreen';
 export const RecoverWalletScreen = 'WhiteWallet.RecoverWalletScreen';
+export const PhraseScreen = 'WhiteWallet.PhraseScreen';
 
 const AppStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -99,6 +101,10 @@ const MainNavigation = () => {
                 <AppStack.Screen
                     name={RecoverWalletScreen}
                     component={RecoverWallet}
+                />
+                <AppStack.Screen
+                    name={PhraseScreen}
+                    component={Phrase}
                 />
                 <AppStack.Screen
                     name={DemoScreen}
