@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -13,6 +13,8 @@ import GenerateWallet from './containers/GenerateWallet';
 import RecoverWallet from './containers/RecoverWallet';
 import Phrase from './containers/Phrase';
 import TestPassword from './containers/TestPassword';
+import theme from './constants/theme';
+import TabBarIcon from './components/TabBar/TabBarIcon';
 
 export const ExplorerScreen = 'WhiteWallet.ExplorerScreen';
 export const CoinJoinScreen = 'WhiteWallet.CoinJoinScreen';
@@ -36,9 +38,19 @@ const TabNavigation = () => {
     return (
         <Tab.Navigator
             initialRouteName={ExplorerScreen}
-            screenOptions={{
-                headerTitleAlign: 'center'
-            }}
+            screenOptions={({route}) => ({
+                tabBarIcon: ({focused}) => {
+                    return <TabBarIcon route={route} focused={focused} />;
+                },
+                headerShown: false,
+                tabBarActiveTintColor: theme.colors.white,
+                tabBarInactiveTintColor: theme.colors.grey,
+                tabBarActiveBackgroundColor: theme.colors.black,
+                tabBarInactiveBackgroundColor: theme.colors.black,
+                tabBarStyle: {
+                    borderTopWidth: 0
+                }
+            })}
         >
             <Tab.Screen
                 name={ExplorerScreen}
