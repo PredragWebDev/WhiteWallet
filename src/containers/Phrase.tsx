@@ -1,15 +1,26 @@
+import { TestPasswordScreen } from '@/AppNavigation'
 import AppButton from '@/components/common/AppButton'
 import AppCheckBox from '@/components/common/AppCheckBox'
 import AppLayout from '@/components/common/AppLayout'
 import AppText from '@/components/common/AppText'
 import { horizontalScale, verticalScale } from '@/helpers/scale'
+import useAppNavigation from '@/hooks/useAppNavigation'
 import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 
 const phrases = ["Confirm", "Confirm", "Confirm", "Quantuan", "Quantuan", "Quantuan", "Quantuan", "Quantuan", "Quantuan", "Quantuan", "Quantuan", "Quantuan"];
 
 const Phrase = () => {
+    const navigation = useAppNavigation();
+
     const [written, setWritten] = useState<boolean>(false)
+
+    const generateWallet = () => {
+        if(written){
+            navigation.navigate(TestPasswordScreen)
+        }
+    }
+
     return (
         <AppLayout>
             <View>
@@ -18,7 +29,7 @@ const Phrase = () => {
                 </AppText>
                 <View style={styles.phraseContainer}>
                     {phrases.map((item, index) => (
-                        <AppText>
+                        <AppText key={index} style={styles.phrase}>
                             {`${index + 1}. `}{item}
                         </AppText>
                     ))}
@@ -43,7 +54,7 @@ const Phrase = () => {
                 <AppButton 
                     style={styles.button}
                     text='GENERATE WALLET'
-                    handleClick={() => {}}
+                    handleClick={generateWallet}
                 />
             </View>
         </AppLayout>

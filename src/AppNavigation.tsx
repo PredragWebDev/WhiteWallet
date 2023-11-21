@@ -12,6 +12,7 @@ import Welcome from './containers/Welcome';
 import GenerateWallet from './containers/GenerateWallet';
 import RecoverWallet from './containers/RecoverWallet';
 import Phrase from './containers/Phrase';
+import TestPassword from './containers/TestPassword';
 
 export const ExplorerScreen = 'WhiteWallet.ExplorerScreen';
 export const CoinJoinScreen = 'WhiteWallet.CoinJoinScreen';
@@ -26,6 +27,7 @@ export const WelcomeScreen = 'WhiteWallet.WelcomeScreen';
 export const GenerateWalletScreen = 'WhiteWallet.GenerateWalletScreen';
 export const RecoverWalletScreen = 'WhiteWallet.RecoverWalletScreen';
 export const PhraseScreen = 'WhiteWallet.PhraseScreen';
+export const TestPasswordScreen = 'WhiteWallet.TestPasswordScreen';
 
 const AppStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -105,6 +107,10 @@ const MainNavigation = () => {
                 <AppStack.Screen
                     name={PhraseScreen}
                     component={Phrase}
+                />
+                <AppStack.Screen 
+                    name={TestPasswordScreen}
+                    component={TestPassword}
                 />
                 <AppStack.Screen
                     name={DemoScreen}
