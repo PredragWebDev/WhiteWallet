@@ -13,7 +13,7 @@ const phrases = ["Confirm", "Confirm", "Confirm", "Quantuan", "Quantuan", "Quant
 const Phrase = () => {
     const navigation = useAppNavigation();
 
-    const [written, setWritten] = useState<boolean>(false)
+    const [written, setWritten] = useState<boolean>(false);
 
     const generateWallet = () => {
         if(written){
@@ -28,10 +28,14 @@ const Phrase = () => {
                     Write down these Recovery Words and Your Password
                 </AppText>
                 <View style={styles.phraseContainer}>
-                    {phrases.map((item, index) => (
-                        <AppText key={index} style={styles.phrase}>
-                            {`${index + 1}. `}{item}
-                        </AppText>
+                    {Array(3).fill(null).map((_, index) => (
+                        <View key={`column_${index}`} style={styles.column}>
+                            {phrases.filter((_, idx) => idx % 3 === index).map((item, idx) => (
+                                <AppText key={`phrase_${item}_${index}_${idx}`} style={styles.phrase}>
+                                    {`${idx * 3 + index + 1}. `}{item}
+                                </AppText>
+                            ))}
+                        </View>
                     ))}
                 </View>
                 <AppText style={styles.text}>
@@ -72,8 +76,9 @@ const styles = StyleSheet.create({
         marginTop: verticalScale(40),
         marginBottom: verticalScale(120),
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between'
+    },
+    column: {
+        flex: 1
     },
     phrase: {
         fontSize: horizontalScale(14),
