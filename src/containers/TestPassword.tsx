@@ -1,3 +1,4 @@
+import { TabsScreen } from '@/AppNavigation';
 import AppButton from '@/components/common/AppButton';
 import AppLayout from '@/components/common/AppLayout';
 import AppNotification, { NotificationType } from '@/components/common/AppNotification';
@@ -6,6 +7,7 @@ import AppTextInput from '@/components/common/AppTextInput';
 import Header from '@/components/common/Header';
 import theme from '@/constants/theme';
 import { horizontalScale, verticalScale } from '@/helpers/scale';
+import useAppNavigation from '@/hooks/useAppNavigation';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -18,8 +20,26 @@ enum TestResult {
 const wallets = ['Wallet1', 'Wallet2', 'Wallet3']
 
 const TestPassword = () => {
+    const navigation = useAppNavigation();
+
     const [testReesult, setTestResult] = useState<TestResult>(TestResult.PENDING)
     const [selectedWalletIndex, setSelectedWalletIndex] = useState<number | null>(null)
+
+    const testPassword = () => {
+        if(testReesult === TestResult.PENDING){
+            setTestResult(TestResult.SUCCESS)
+        }
+        if(testReesult === TestResult.SUCCESS){
+            setTestResult(TestResult.ERROR)
+        }
+        if(testReesult === TestResult.ERROR){
+            setTestResult(TestResult.PENDING)
+        }
+    }
+
+    const loadWallet = () => {
+        navigation.navigate(TabsScreen)
+    }
 
     const Notification = () => {
         if (testReesult === TestResult.PENDING)
@@ -81,10 +101,12 @@ const TestPassword = () => {
                         type='secondary'
                         text='LOAD WALLET'
                         style={styles.button}
+                        handleClick={loadWallet}
                     />
                     <AppButton
                         text='TEST PASSWORD'
                         style={styles.button}
+                        handleClick={testPassword}
                     />
                 </View>
             </View>

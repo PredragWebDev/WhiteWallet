@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: horizontalScale(16),
         paddingVertical: verticalScale(20),
-        width: '100%'
+        width: '100%',
+        gap: verticalScale(10)
     },
 
     text: {

@@ -22,7 +22,15 @@ const RecoverWallet = () => {
     const [recoverResult, setRecoverResult] = useState<RecoverResult>(RecoverResult.PENDING)
 
     const recoverWallet = () => {
-
+        if(recoverResult === RecoverResult.PENDING){
+            setRecoverResult(RecoverResult.SUCCESS)
+        }
+        if(recoverResult === RecoverResult.SUCCESS){
+            setRecoverResult(RecoverResult.ERROR)
+        }
+        if(recoverResult === RecoverResult.ERROR){
+            setRecoverResult(RecoverResult.PENDING)
+        }
     }
 
     return (
