@@ -1,33 +1,22 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import useAppNavigation from '@/hooks/useAppNavigation';
-import { DemoScreen } from '@/AppNavigation';
-import AppLayout from '@/components/common/AppLayout';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MainExplorer from '@/containers/Explorer/MainExplorer';
+
+export const MainExplorerScreen = 'WhiteWallet.MainExplorerScreen'
+
+const ExplorerStack = createNativeStackNavigator()
 
 const Explorer = () => {
-    const navigation = useAppNavigation()
     return (
-        <AppLayout>
-            <View style={styles.container}>
-                <TouchableOpacity onPress={() => navigation.navigate(DemoScreen)}>
-                    <Text>
-                        Go To Demo
-                    </Text>
-                </TouchableOpacity>
-                <Text>
-                    Explorer
-                </Text>
-            </View>
-        </AppLayout>
+        <ExplorerStack.Navigator initialRouteName={MainExplorerScreen} screenOptions={{
+            headerShown: false
+        }}>
+            <ExplorerStack.Screen
+                name={MainExplorerScreen}
+                component={MainExplorer}
+            />
+        </ExplorerStack.Navigator>
     )
 }
 
 export default Explorer;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
