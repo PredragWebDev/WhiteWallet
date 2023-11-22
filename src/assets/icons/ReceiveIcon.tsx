@@ -4,8 +4,9 @@ import * as React from "react"
 import Svg, { Path, G, Defs, ClipPath } from "react-native-svg"
 const ReceiveIcon = ({focused, ...props}: TabIconProps) => (
   <Svg
-    width={26}
-    height={24}
+    width={props.width ? props.width : 26}
+    height={props.height ? props.height: 24}
+    viewBox="0, 0, 26, 24"
     style={{
       marginLeft: -10,
       marginTop: -3

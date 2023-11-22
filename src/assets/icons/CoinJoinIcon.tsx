@@ -4,8 +4,9 @@ import * as React from "react"
 import Svg, { Path } from "react-native-svg"
 const CoinJoinIcon = ({focused, ...props}: TabIconProps) => (
   <Svg
-    width={24}
-    height={21}
+    width={props.width ? props.width : 24}
+    height={props.height ? props.height : 21}
+    viewBox="0, 0, 24, 21"
     fill="none"
     {...props}
   >

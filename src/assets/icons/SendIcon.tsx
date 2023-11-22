@@ -10,13 +10,14 @@ import Svg, {
 } from "react-native-svg"
 const SendIcon = ({focused, ...props}: TabIconProps) => (
   <Svg
-    width={30}
-    height={28}
+    width={props.width ? props.width: 30}
+    height={props.height ? props.height : 28}
+    viewBox="0, 0, 30, 28"
     fill="none"
-    style={{
+    style={[{
       marginTop: -5,
       marginLeft: 10
-    }}
+    }, props.style]}
     {...props}
   >
     <Circle cx={9.923} cy={17.277} r={8.923} stroke={focused ? theme.colors.white : theme.colors.grey} strokeWidth={2} />
